@@ -1,6 +1,6 @@
 import React from "react";
 import {varelaRound} from "@/fonts";
-import {bedIcon, beerIcon, cutleryIcon, gameIcon, theaterIcon} from "@/app/icons";
+import {bedIcon, beerIcon, cutleryIcon, gameIcon, starIcon, theaterIcon} from "@/app/icons";
 
 const infos = [
     {
@@ -55,6 +55,30 @@ const infos = [
     },
 ];
 
+const avis = [
+    {
+        author : "Marie Lambert",
+        date : "01/08/2023",
+        comment : "Une expérience inoubliable ! Le spectacle était magique, " +
+            "la cuisine raffinée et l’ambiance du château absolument féérique. " +
+            "Un endroit unique où l’on se sent transporté dans un autre monde."
+    },
+    {
+        author : "Julien Romano",
+        date : "09/11/2023",
+        comment : "Une soirée parfaite du début à la fin ! Le personnel est aux petits soins, " +
+            "le repas était délicieux et le cocktail Mystère d’Habarcq une véritable découverte gustative. " +
+            "Un lieu à recommander sans hésitation."
+    },
+    {
+        author : "Sophie Zwilwerck",
+        date : "21/11/2024",
+        comment : "Le Cabaret du Château d’Habarcq est une pépite ! Entre le cadre somptueux," +
+            " les spectacles envoûtants et les mets succulents, nous avons passé un moment hors du temps." +
+            " Nous reviendrons avec grand plaisir"
+    },
+]
+
 export default function Home() {
     return (
         <main>
@@ -67,21 +91,47 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <div className="w-screen h-80 bg-our-red shadowed flex text-justify">
-                <p className={"m-auto w-2/3 text-xl"}>
-                    Niché au cœur du village d’Habarcq, notre cabaret prend vie dans l’illustre "Château" d’Habarcq, une majestueuse villa où se mêlent élégance et divertissement. Dès que vous franchissez ses portes, vous plongez dans un univers raffiné, mêlant spectacles, gastronomie, détente et hébergement d’exception.
-                </p>
+            <div className="w-screen  bg-our-red shadowed flex text-justify p-4">
+                <div className="flex flex-col ">
+                    <p className={"m-auto w-2/3 text-xl"}>
+                        Niché au cœur du village d’Habarcq, notre cabaret prend vie dans l’illustre "Château" d’Habarcq,
+                        une
+                        majestueuse villa où se mêlent élégance et divertissement. Dès que vous franchissez ses portes,
+                        vous
+                        plongez dans un univers raffiné, mêlant spectacles, gastronomie, détente et hébergement
+                        d’exception.
+                    </p>
+                    <div className="divider w-5/6 m-auto text-xl">Localisation</div>
+                    <div className="flex justify-around">
+                        <img className="w-1/3 m-4" src="/geo.png" alt="the google maps screeshot of the place"/>
+                        <a href="https://maps.app.goo.gl/2TFVo3S1SBri3GKB7" target="_blank" className="underline btn bg-our-white text-black hover:text-white m-auto text-3xl">Rue de la Poste, 62123 Habarcq</a>
+                    </div>
+
+                </div>
             </div>
             <div className="flex flex-col text-justify">
                 {infos.map((info, index) => (
                     <div key={info.name} className="h-40 px-10 py-5 flex justify-center items-center info gap-4">
                         <i className={""}>{info.icon}</i>
-                        <div className="w-4/5 opacity-0 slide-in-text" style={{ animationDelay: `${index * 0.2}s`}}>
+                        <div className="w-4/5 opacity-0 slide-in-text" style={{animationDelay: `${index * 0.2}s`}}>
                             <h2 className="text-2xl font-bold mb-2">{info.name}</h2>
                             <p>{info.description}</p>
                         </div>
                     </div>
                 ))}
+            </div>
+            <div className="bg-our-white text-black flex flex-col items-center gap-y-8 py-4">
+                <h2 className="text-2xl font-semibold grey-bg-underline">Précédents Avis</h2>
+                {
+                    avis.map((avis, n) => (
+                        <div key={n} className="w-5/6 card bg-our-red my-shadow p-4 rounded-md">
+                            <h3 className="flex gap-x-2">{starIcon} - {avis.author}
+                                <span className="bg-our-white text-gray-800 text-sm font-medium mb-2 px-2.5 py-0.5 rounded"> {avis.date} </span>
+                            </h3>
+                            <p className="text-justify italic">{avis.comment}</p>
+                        </div>
+                    ))
+                }
             </div>
         </main>
     );

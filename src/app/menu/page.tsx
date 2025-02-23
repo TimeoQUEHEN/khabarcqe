@@ -200,7 +200,7 @@ const MenuDisplay = () => {
 
             <div
                 id="MenuClipBoard"
-                className={` m-auto w-1/2 h-5/6 rounded-md my-shadow p-8 flex items-center bg-our-black
+                className={` m-auto w-11/12 md:w-2/3 h-5/6 rounded-md my-shadow p-2 md:p-8 flex items-center bg-our-black
                 }`}
             >
 
