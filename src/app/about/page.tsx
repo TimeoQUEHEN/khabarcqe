@@ -2,7 +2,7 @@ import {warningIcon} from "@/app/icons";
 
 export default function page() {
     return (
-        <div className="bg-our-white p-4 flex flex-col gap-y-4 text-justify">
+        <div className="bg-our-white p-4 flex flex-col gap-y-4 text-justify min-h-screen">
             <p className="p-2 bg-our-black text-white rounded-md">
                 En 2013, 3 amis décident de rigoler un peu et investissent un total de 30 € dans le bitcoin.
                 Aujourd'hui, 10 ans plus tard et sans soucis d'argents, ils décident de démarrer une entreprise ensemble
